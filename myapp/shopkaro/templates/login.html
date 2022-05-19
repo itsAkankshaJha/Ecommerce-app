@@ -5,30 +5,57 @@
 {% endblock %}
 {% block content %}
 
-<div class="login">
+<!--<div class="login">-->
 
-		<div class="main-agileits">
-				<div class="form-w3agile">
-					<h3>Login</h3>
-					<form action="#" method="post">
-						<div class="key">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-							<input  type="text" name="Email" required="" placeholder="Email">
-							<div class="clearfix"></div>
-						</div>
-						<div class="key">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-							<input  type="password" name="Password" required="" placeholder="Password">
-							<div class="clearfix"></div>
-						</div>
-						<input type="submit" value="Login">
-					</form>
-				</div>
-				<div class="forg">
-					<a href="#" class="forg-left">Forgot Password</a>
-					<a href="register.html" class="forg-right">Register</a>
-				<div class="clearfix"></div>
-				</div>
-			</div>
-		</div>
+<!--    <div class="main-agileits">-->
+<!--        <div class="form-w3agile">-->
+<!--            <h3>Login</h3>-->
+<!--            <form action="#" method="post">-->
+<!--                <div class="key">-->
+<!--                    <i class="fa fa-envelope" aria-hidden="true"></i>-->
+<!--                    <input type="text" name="Email" required="" placeholder="Email">-->
+<!--                    <div class="clearfix"></div>-->
+<!--                </div>-->
+<!--                <div class="key">-->
+<!--                    <i class="fa fa-lock" aria-hidden="true"></i>-->
+<!--                    <input type="password" name="Password" required="" placeholder="Password">-->
+<!--                    <div class="clearfix"></div>-->
+<!--                </div>-->
+
+<!--                <input type="submit" value="Login">-->
+<!--            </form>-->
+<!--        </div>-->
+<!--        <div class="forg">-->
+<!--            <a href="#" class="forg-left">Forgot Password</a>-->
+<!--            &lt;!&ndash;                    <a href="{% url 'myregister' %}" class="forg-right">Register</a>&ndash;&gt;-->
+<!--            <div class="clearfix"></div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="login">
+    <div class="main-agileits">
+        <div class="form-w3agile">
+            <h3>Login</h3>
+            <table class="table table-striped">
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    {{ meraloginform.as_table }}
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" name="submit" value="Login"/>
+                        </td>
+                    </tr>
+                </form>
+            </table>
+        </div>
+        <!--        {% if messages %}-->
+        <!--        <ul>-->
+        <!--            {% for message in messages %}-->
+        <!--            <li>{{ message }}</li>-->
+        <!--            {% endfor %}-->
+        <!--        </ul>-->
+        <!--        {% endif %}-->
+    </div>
+</div>
 {% endblock %}
